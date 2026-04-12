@@ -1,0 +1,42 @@
+name: Release (OIDC Test)
+
+on:
+  push:
+    branches: [trevor/test-oidc-publish]
+permissions: {}
+
+jobs:
+  release:
+    permissions:
+      contents: write
+      id-token: write
+      pull-requests: write
+    environment: deploy
+    name: Release (OIDC Test)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          cache: yarn
+          registry-url: https://registry.npmjs.org # registry to use for auth
+      - name: Cache node modules
+        uses: actions/cache@v4
+        id: cache-modules
+        with:
+          path: node_modules
+          key: node_modules-${{hashFiles('yarn.lock')}}
+          restore-keys: node_modules-
+      - run: yarn install --frozen-lockfile --immutable
+      - name: Create Release Pull Request or Publish to npm
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          version: yarn ci:version
+          publish: yarn release:oidc-test
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_CONFIG_PROVENANCE: "true"
