@@ -148,8 +148,11 @@ export class GraphQLLanguageService {
       }
     } catch (error) {
       if (error instanceof GraphQLError) {
+        const loc = error.locations?.[0];
         const range = getRange(
-          error.locations?.[0] ?? { column: 0, line: 0 },
+          loc
+            ? { line: loc.line - 1, character: loc.column - 1 }
+            : { line: 0, character: 0 },
           document,
         );
         return [

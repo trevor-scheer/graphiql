@@ -14,7 +14,6 @@ import {
   GraphQLError,
   GraphQLSchema,
   Location,
-  SourceLocation,
   ValidationRule,
   print,
   validate,
@@ -79,8 +78,11 @@ export function getDiagnostics(
     ast = parse(enhancedQuery);
   } catch (error) {
     if (error instanceof GraphQLError) {
+      const loc = error.locations?.[0];
       const range = getRange(
-        error.locations?.[0] ?? { line: 0, column: 0 },
+        loc
+          ? { line: loc.line - 1, character: loc.column - 1 }
+          : { line: 0, character: 0 },
         enhancedQuery,
       );
 
@@ -169,19 +171,22 @@ function annotations(
   return highlightedNodes;
 }
 
-export function getRange(location: SourceLocation, queryText: string): IRange {
+export function getRange(
+  location: { line: number; character: number },
+  queryText: string,
+): IRange {
   const parser = onlineParser();
   const state = parser.startState();
   const lines = queryText.split('\n');
 
   invariant(
-    lines.length >= location.line,
+    lines.length > location.line,
     'Query text must have more lines than where the error happened',
   );
 
   let stream = null;
 
-  for (let i = 0; i < location.line; i++) {
+  for (let i = 0; i <= location.line; i++) {
     stream = new CharacterStream(lines[i]);
     while (!stream.eol()) {
       const style = parser.token(stream, state);
@@ -192,12 +197,14 @@ export function getRange(location: SourceLocation, queryText: string): IRange {
   }
 
   invariant(stream, 'Expected Parser stream to be available.');
-  const line = location.line - 1;
   // @ts-expect-error -- https://github.com/microsoft/TypeScript/pull/32695
   const start = stream.getStartOfToken();
   // @ts-expect-error -- https://github.com/microsoft/TypeScript/pull/32695
   const end = stream.getCurrentPosition();
-  return new Range(new Position(line, start), new Position(line, end));
+  return new Range(
+    new Position(location.line, start),
+    new Position(location.line, end),
+  );
 }
 
 /**

@@ -101,7 +101,7 @@ export function toMarkerData(
     startLineNumber: diagnostic.range.start.line + 1,
     endLineNumber: diagnostic.range.end.line + 1,
     startColumn: diagnostic.range.start.character + 1,
-    endColumn: diagnostic.range.end.character,
+    endColumn: diagnostic.range.end.character + 1,
     message: diagnostic.message,
     severity: toMonacoSeverity(diagnostic.severity),
     code: (diagnostic.code as string) || undefined,

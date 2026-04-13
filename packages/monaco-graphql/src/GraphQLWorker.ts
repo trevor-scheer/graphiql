@@ -84,13 +84,9 @@ export class GraphQLWorker {
         document,
         graphQLPosition,
       );
-      const location = {
-        column: graphQLPosition.character,
-        line: graphQLPosition.line,
-      };
       return {
         content: hover,
-        range: toMonacoRange(getRange(location, document)),
+        range: toMonacoRange(getRange(graphQLPosition, document)),
       };
     } catch (err) {
       // eslint-disable-next-line no-console

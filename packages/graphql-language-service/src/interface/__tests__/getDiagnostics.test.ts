@@ -21,6 +21,7 @@ import path from 'node:path';
 
 import {
   getDiagnostics,
+  getRange,
   validateQuery,
   DIAGNOSTIC_SEVERITY,
 } from '../getDiagnostics';
@@ -207,5 +208,40 @@ describe('getDiagnostics', () => {
       externalFragments,
     );
     expect(errors).toHaveLength(0);
+  });
+});
+
+describe('getRange', () => {
+  it('returns a valid range for the first line (line 0)', () => {
+    const range = getRange(
+      { line: 0, character: 0 },
+      '{ hero { name } }',
+    );
+    expect(range.start.line).toBe(0);
+    expect(range.end.line).toBe(0);
+    expect(range.end.character).toBeGreaterThan(range.start.character);
+  });
+
+  it('returns a valid range for the second line of a multiline query', () => {
+    const range = getRange(
+      { line: 1, character: 0 },
+      '{\n  hero { name }\n}',
+    );
+    expect(range.start.line).toBe(1);
+    expect(range.end.line).toBe(1);
+  });
+
+  it('throws for out-of-bounds line', () => {
+    expect(() => getRange({ line: 99, character: 0 }, '{ hero }')).toThrow(
+      'Query text must have more lines than where the error happened',
+    );
+  });
+
+  it('produces valid diagnostics for a syntax error on the first line', () => {
+    const schema = buildSchema('type Query { hero: String }');
+    const errors = getDiagnostics('{ hero( }', schema);
+    expect(errors.length).toBeGreaterThan(0);
+    expect(errors[0].range.start.line).toBe(0);
+    expect(errors[0].range.end.line).toBe(0);
   });
 });
