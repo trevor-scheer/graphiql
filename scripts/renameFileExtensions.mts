@@ -32,7 +32,7 @@ if (tempPath) {
     if (error) {
       throw error;
     }
-    for (const file of files) {
+    for (const file of files ?? []) {
       if (file.dest) {
         const srcExt = path.parse(file.dest).ext;
         const destinationPath = path.resolve(

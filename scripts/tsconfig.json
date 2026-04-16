@@ -15,5 +15,5 @@
     "types": ["node"],
     "noEmit": true
   },
-  "include": ["./*.mts", "./types.d.ts", "../resources/*.mts"]
+  "include": ["./*.mts", "../resources/*.mts"]
 }
