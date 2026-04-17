@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeAll, afterEach, vi } from 'vitest';
+import { describe, it, expect, afterAll, beforeAll, afterEach } from 'vitest';
 import { readFile, rm } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -14,7 +14,8 @@ import {
   parse,
   version,
 } from 'graphql';
-import fetchMock from 'fetch-mock';
+import { http, HttpResponse } from 'msw';
+import { setupServer } from 'msw/node';
 import * as graphql from 'graphql';
 
 import { createSchema } from '../../../graphiql/test/schema.js';
@@ -23,29 +24,15 @@ const graphiqlSchema = createSchema(graphql);
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-vi.mock('@whatwg-node/fetch', () => {
-  const { AbortController } = require('node-abort-controller');
-
-  return {
-    fetch: require('fetch-mock').fetchHandler,
-    AbortController,
-    TextDecoder: global.TextDecoder,
-  };
-});
+const server = setupServer();
+beforeAll(() => server.listen());
+afterAll(() => server.close());
 
 function mockSchema(schema: GraphQLSchema) {
   const introspectionResult = {
     data: introspectionFromSchema(schema, { descriptions: true }),
   };
-  return fetchMock.mock({
-    matcher: '*',
-    response: {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: introspectionResult,
-    },
-  });
+  server.use(http.post('*', () => HttpResponse.json(introspectionResult)));
 }
 
 const defaultFiles: MockFile[] = [
@@ -99,7 +86,7 @@ describe('MessageProcessor with no config', () => {
   afterEach(() => {
     project?.dispose();
     project = undefined;
-    fetchMock.restore();
+    server.resetHandlers();
   });
 
   it('fails to initialize with empty config file', async () => {
@@ -169,7 +156,7 @@ describe('MessageProcessor with config', () => {
   afterEach(() => {
     project?.dispose();
     project = undefined;
-    fetchMock.restore();
+    server.resetHandlers();
   });
 
   it('caches files and schema with .graphql file config, and the schema updates with watched file changes', async () => {
@@ -375,9 +362,7 @@ describe('MessageProcessor with config', () => {
     project.lsp.handleShutdownRequest();
   });
 
-  // TODO(vitest): vi.mock doesn't intercept CJS requires in node_modules;
-  // fetch mock interception will be replaced with MSW in the next commit.
-  it.skip('caches files and schema with a URL config', async () => {
+  it('caches files and schema with a URL config', async () => {
     const offset = parseInt(version, 10) > 16 ? 25 : 0;
     mockSchema(graphiqlSchema);
 
@@ -513,9 +498,7 @@ describe('MessageProcessor with config', () => {
     project.lsp.handleShutdownRequest();
   });
 
-  // TODO(vitest): vi.mock doesn't intercept CJS requires in node_modules;
-  // fetch mock interception will be replaced with MSW in the next commit.
-  it.skip('caches multiple projects with files and schema with a URL config and a local schema', async () => {
+  it('caches multiple projects with files and schema with a URL config and a local schema', async () => {
     mockSchema(graphiqlSchema);
 
     project = new MockProject({
@@ -563,7 +546,7 @@ describe('MessageProcessor with config', () => {
       expect.stringMatching(/SyntaxError: Unexpected token/),
     );
 
-    fetchMock.restore();
+    server.resetHandlers();
     mockSchema(
       buildASTSchema(
         parse(
