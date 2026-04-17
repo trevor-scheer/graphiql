@@ -1,3 +1,4 @@
+import { describe, it, expect, afterEach } from 'vitest';
 import startServer from '../startServer';
 
 describe('startServer', () => {
