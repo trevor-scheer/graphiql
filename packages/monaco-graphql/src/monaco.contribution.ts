@@ -7,10 +7,10 @@
 
 export {
   modeConfigurationDefault,
-  SchemaEntry,
+  type SchemaEntry,
   formattingDefaults,
   MonacoGraphQLAPI,
-  MonacoGraphQLAPIOptions,
+  type MonacoGraphQLAPIOptions,
   diagnosticSettingDefault,
 } from './api';
 import { languages } from './monaco-editor';

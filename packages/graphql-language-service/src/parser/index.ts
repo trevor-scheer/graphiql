@@ -13,7 +13,7 @@ export { LexRules, ParseRules, isIgnored } from './Rules';
 
 export { butNot, list, opt, p, t } from './RuleHelpers';
 
-export { default as onlineParser, ParserOptions } from './onlineParser';
+export { default as onlineParser, type ParserOptions } from './onlineParser';
 
 export {
   runOnlineParser,

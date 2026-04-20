@@ -14,9 +14,9 @@ export {
 
 export {
   getVariablesJSONSchema,
-  JSONSchema6,
-  JSONSchema6TypeName,
-  JSONSchemaOptions,
+  type JSONSchema6,
+  type JSONSchema6TypeName,
+  type JSONSchemaOptions,
 } from './getVariablesJSONSchema';
 
 export { getASTNodeAtPosition, pointToOffset } from './getASTNodeAtPosition';
@@ -25,12 +25,12 @@ export { Position, Range, locToRange, offsetToPosition } from './Range';
 
 export { validateWithCustomRules } from './validateWithCustomRules';
 
-export { collectVariables, VariableToType } from './collectVariables';
+export { collectVariables, type VariableToType } from './collectVariables';
 
 export {
   default as getOperationFacts,
   getOperationASTFacts,
   getQueryFacts,
-  OperationFacts,
-  QueryFacts,
+  type OperationFacts,
+  type QueryFacts,
 } from './getOperationFacts';
