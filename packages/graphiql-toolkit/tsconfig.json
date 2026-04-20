@@ -5,6 +5,7 @@
     "declaration": true,
     "noEmit": true,
     "esModuleInterop": true,
+    "verbatimModuleSyntax": true,
     "strict": true,
     "skipLibCheck": true,
     "allowJs": true,
