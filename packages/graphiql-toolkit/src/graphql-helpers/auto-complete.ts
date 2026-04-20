@@ -1,16 +1,18 @@
 import {
-  DocumentNode,
   getNamedType,
-  GraphQLOutputType,
   GraphQLSchema,
-  GraphQLType,
   isLeafType,
   Kind,
   parse,
   print,
-  SelectionSetNode,
   TypeInfo,
   visit,
+} from 'graphql';
+import type {
+  DocumentNode,
+  GraphQLOutputType,
+  GraphQLType,
+  SelectionSetNode,
 } from 'graphql';
 
 type Insertion = {

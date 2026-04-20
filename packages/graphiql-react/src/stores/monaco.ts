@@ -71,7 +71,9 @@ export const monacoStore = createStore<MonacoStoreType>((set, get) => ({
         return;
       }
       const [monaco, { initializeMode }] = await Promise.all([
-        import('monaco-graphql/esm/monaco-editor.js'),
+        import('monaco-graphql/esm/monaco-editor.js') as unknown as Promise<
+          typeof import('monaco-editor')
+        >,
         import('monaco-graphql/esm/lite.js'),
       ]);
       globalThis.__MONACO = monaco;

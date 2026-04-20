@@ -1,4 +1,4 @@
-import { Mock } from 'vitest';
+import type { Mock } from 'vitest';
 import { parse } from 'graphql';
 import {
   isSubscriptionWithName,

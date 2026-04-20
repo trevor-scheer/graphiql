@@ -1,4 +1,5 @@
-import { GraphiQLPlugin, HistoryIcon } from '@graphiql/react';
+import { HistoryIcon } from '@graphiql/react';
+import type { GraphiQLPlugin } from '@graphiql/react';
 import './style.css';
 
 import { History } from './components';

@@ -1,5 +1,6 @@
 import type { QueryStoreItem } from '@graphiql/toolkit';
-import { FC, MouseEventHandler, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import type { FC, MouseEventHandler } from 'react';
 import {
   cn,
   CloseIcon,

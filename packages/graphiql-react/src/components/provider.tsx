@@ -8,7 +8,8 @@ import {
   useId,
   useState,
 } from 'react';
-import { create, useStore, UseBoundStore, StoreApi } from 'zustand';
+import { create, useStore } from 'zustand';
+import type { UseBoundStore, StoreApi } from 'zustand';
 import { useShallow } from 'zustand/shallow';
 import { StorageAPI } from '@graphiql/toolkit';
 import {
@@ -18,23 +19,20 @@ import {
   createSchemaSlice,
   createThemeSlice,
   createStorageSlice,
+  useMonaco,
+} from '../stores';
+import type {
   EditorProps,
   ExecutionProps,
   PluginProps,
   SchemaProps,
   ThemeProps,
   StorageProps,
-  useMonaco,
 } from '../stores';
 import type { SlicesWithActions } from '../types';
 import { useDidUpdate } from '../utility';
-import {
-  FragmentDefinitionNode,
-  parse,
-  visit,
-  isSchema,
-  validateSchema,
-} from 'graphql';
+import { parse, visit, isSchema, validateSchema } from 'graphql';
+import type { FragmentDefinitionNode } from 'graphql';
 import {
   DEFAULT_PRETTIFY_QUERY,
   DEFAULT_QUERY,

@@ -1,7 +1,6 @@
-import { FC, useState } from 'react';
+import { useState } from 'react';
+import type { FC } from 'react';
 import {
-  GraphQLEnumValue,
-  GraphQLNamedType,
   isAbstractType,
   isEnumType,
   isInputObjectType,
@@ -9,6 +8,7 @@ import {
   isNamedType,
   isObjectType,
 } from 'graphql';
+import type { GraphQLEnumValue, GraphQLNamedType } from 'graphql';
 import { useGraphiQL, Button, MarkdownContent } from '@graphiql/react';
 import type { DocExplorerFieldDef } from '../context';
 import { Argument } from './argument';

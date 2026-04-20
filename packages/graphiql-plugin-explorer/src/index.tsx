@@ -1,15 +1,14 @@
-import { CSSProperties, FC, useCallback } from 'react';
+import { useCallback } from 'react';
+import type { CSSProperties, FC } from 'react';
 import {
-  GraphiQLPlugin,
   useGraphiQL,
   useGraphiQLActions,
   useOperationsEditorState,
   useOptimisticState,
 } from '@graphiql/react';
-import {
-  Explorer as GraphiQLExplorer,
-  GraphiQLExplorerProps,
-} from 'graphiql-explorer';
+import type { GraphiQLPlugin } from '@graphiql/react';
+import { Explorer as GraphiQLExplorer } from 'graphiql-explorer';
+import type { GraphiQLExplorerProps } from 'graphiql-explorer';
 import ArrowIcon from './icons/arrow.svg?react';
 import FolderPlusIcon from './icons/folder-plus.svg?react';
 import CheckboxUncheckedIcon from './icons/checkbox-unchecked.svg?react';

@@ -1,5 +1,6 @@
 import type { FC } from 'react';
-import { DocExplorerFieldDef, useDocExplorerActions } from '../context';
+import { useDocExplorerActions } from '../context';
+import type { DocExplorerFieldDef } from '../context';
 import './field-link.css';
 
 type FieldLinkProps = {

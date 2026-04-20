@@ -5,17 +5,16 @@ import type {
   DocumentNode,
 } from 'graphql';
 import type { OperationFacts } from 'graphql-language-service';
-import { MaybePromise, mergeAst } from '@graphiql/toolkit';
+import { mergeAst } from '@graphiql/toolkit';
+import type { MaybePromise } from '@graphiql/toolkit';
 import { print } from 'graphql';
 import {
   createTab,
   setPropertiesInActiveTab,
-  TabDefinition,
-  TabsState,
-  TabState,
   clearHeadersFromTabs,
   serializeTabState,
 } from '../utility/tabs';
+import type { TabDefinition, TabsState, TabState } from '../utility/tabs';
 import type { SlicesWithActions, MonacoEditor } from '../types';
 import { debounce, formatJSONC } from '../utility';
 import { STORAGE_KEY } from '../constants';

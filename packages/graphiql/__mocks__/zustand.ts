@@ -11,8 +11,8 @@ import {
   create as originalCreate,
   createStore as originalCreateStore,
   useStore,
-  StateCreator,
 } from 'zustand';
+import type { StateCreator } from 'zustand';
 
 // Originally zustand docs suggest to use `export * from 'zustand'`, but I had issues with it.
 // It conflicts with locale export of `create` and `createStore` functions

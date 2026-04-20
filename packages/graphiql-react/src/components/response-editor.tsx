@@ -1,6 +1,8 @@
 import { formatError } from '@graphiql/toolkit';
-import { ComponentType, FC, useEffect, useRef } from 'react';
-import { createRoot, Root } from 'react-dom/client';
+import { useEffect, useRef } from 'react';
+import type { ComponentType, FC } from 'react';
+import { createRoot } from 'react-dom/client';
+import type { Root } from 'react-dom/client';
 import { useGraphiQL, useGraphiQLActions } from './provider';
 import { ImagePreview } from './image-preview';
 import {

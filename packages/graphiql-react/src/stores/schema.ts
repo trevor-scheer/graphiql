@@ -1,17 +1,17 @@
 import {
-  FetcherOpts,
   fetcherReturnToPromise,
   formatError,
   formatResult,
   isPromise,
 } from '@graphiql/toolkit';
+import type { FetcherOpts } from '@graphiql/toolkit';
 import {
   buildClientSchema,
   getIntrospectionQuery,
   GraphQLError,
   GraphQLSchema,
-  IntrospectionQuery,
 } from 'graphql';
+import type { IntrospectionQuery } from 'graphql';
 import type { Dispatch } from 'react';
 import type { StateCreator } from 'zustand';
 import type { SlicesWithActions, SchemaReference } from '../types';

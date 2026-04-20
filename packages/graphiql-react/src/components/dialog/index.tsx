@@ -1,5 +1,6 @@
 import { cn } from '../../utility';
-import { forwardRef, FC, ComponentPropsWithoutRef } from 'react';
+import { forwardRef } from 'react';
+import type { FC, ComponentPropsWithoutRef } from 'react';
 import { CloseIcon } from '../../icons';
 import { UnStyledButton } from '../button';
 import * as D from '@radix-ui/react-dialog';

@@ -1,13 +1,16 @@
 import {
-  GraphQLArgument,
-  GraphQLField,
-  GraphQLInputField,
-  GraphQLNamedType,
   isInputObjectType,
   isInterfaceType,
   isObjectType,
 } from 'graphql';
-import { FC, useEffect, useRef, useState } from 'react';
+import type {
+  GraphQLArgument,
+  GraphQLField,
+  GraphQLInputField,
+  GraphQLNamedType,
+} from 'graphql';
+import { useEffect, useRef, useState } from 'react';
+import type { FC } from 'react';
 import {
   Combobox,
   ComboboxInput,

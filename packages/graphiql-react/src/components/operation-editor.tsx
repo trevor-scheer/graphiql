@@ -4,7 +4,8 @@ import {
   getOperationFacts,
   getContextAtPosition,
 } from 'graphql-language-service';
-import { FC, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import type { FC } from 'react';
 import { useMonaco } from '../stores';
 import { useGraphiQL, useGraphiQLActions } from './provider';
 import {

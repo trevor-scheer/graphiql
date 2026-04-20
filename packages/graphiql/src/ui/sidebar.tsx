@@ -1,4 +1,5 @@
-import { FC, type MouseEventHandler, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import type { FC, MouseEventHandler } from 'react';
 import {
   Button,
   ButtonGroup,

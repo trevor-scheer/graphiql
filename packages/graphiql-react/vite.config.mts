@@ -1,7 +1,8 @@
 /* eslint-disable no-console */
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { defineConfig, PluginOption } from 'vite';
+import { defineConfig } from 'vite';
+import type { PluginOption } from 'vite';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
 import type { PluginOptions as ReactCompilerConfig } from 'babel-plugin-react-compiler';

@@ -1,5 +1,6 @@
 import path from 'node:path';
-import { defineConfig, PluginOption } from 'vite';
+import { defineConfig } from 'vite';
+import type { PluginOption } from 'vite';
 import dts from 'vite-plugin-dts';
 import react from '@vitejs/plugin-react';
 import { reactCompilerConfig as $reactCompilerConfig } from '../graphiql-react/vite.config.mjs';

@@ -1,4 +1,5 @@
-import { DocumentNode, visit } from 'graphql';
+import { visit } from 'graphql';
+import type { DocumentNode } from 'graphql';
 import { meros } from 'meros';
 import type {
   Client,

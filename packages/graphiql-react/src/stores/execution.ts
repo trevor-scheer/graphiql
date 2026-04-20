@@ -1,14 +1,13 @@
 import {
-  Fetcher,
   fillLeafs,
   formatError,
   formatResult,
-  GetDefaultFieldNamesFn,
   isAsyncIterable,
   isObservable,
-  Unsubscribable,
 } from '@graphiql/toolkit';
-import { ExecutionResult, GraphQLError, print } from 'graphql';
+import type { Fetcher, GetDefaultFieldNamesFn, Unsubscribable } from '@graphiql/toolkit';
+import { GraphQLError, print } from 'graphql';
+import type { ExecutionResult } from 'graphql';
 import { getFragmentDependenciesForAST } from 'graphql-language-service';
 import setValue from 'set-value';
 import getValue from 'get-value';

@@ -1,6 +1,7 @@
 'use no memo';
 
-import React, { ComponentProps } from 'react';
+import React from 'react';
+import type { ComponentProps } from 'react';
 import ReactDOM from 'react-dom/client';
 import GraphiQL from './cdn';
 import type { TabsState, Theme } from '@graphiql/react';

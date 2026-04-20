@@ -1,7 +1,8 @@
 import { parse } from 'graphql';
 
 import { StorageAPI } from './base';
-import { QueryStore, QueryStoreItem } from './query';
+import { QueryStore } from './query';
+import type { QueryStoreItem } from './query';
 
 const MAX_QUERY_SIZE = 100000;
 

@@ -1,4 +1,5 @@
-import { FC, Fragment } from 'react';
+import { Fragment } from 'react';
+import type { FC } from 'react';
 import { formatShortcutForOS, KEY_MAP } from '@graphiql/react';
 
 const SHORT_KEYS = Object.entries({

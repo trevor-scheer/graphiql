@@ -1,5 +1,6 @@
 import type { GraphQLArgument } from 'graphql';
-import { FC, useState } from 'react';
+import { useState } from 'react';
+import type { FC } from 'react';
 import { Button, MarkdownContent } from '@graphiql/react';
 import type { DocExplorerFieldDef } from '../context';
 import { Argument } from './argument';

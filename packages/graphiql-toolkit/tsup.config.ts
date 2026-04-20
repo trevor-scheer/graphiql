@@ -1,4 +1,5 @@
-import { defineConfig, Options } from 'tsup';
+import { defineConfig } from 'tsup';
+import type { Options } from 'tsup';
 
 const opts: Options = {
   entry: ['src/**/*.ts', '!**/__tests__'],

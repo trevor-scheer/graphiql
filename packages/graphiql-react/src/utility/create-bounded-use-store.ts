@@ -1,4 +1,5 @@
-import { ExtractState, StoreApi, useStore } from 'zustand';
+import { useStore } from 'zustand';
+import type { ExtractState, StoreApi } from 'zustand';
 import { useShallow } from 'zustand/shallow';
 
 // https://zustand.docs.pmnd.rs/guides/typescript#bounded-usestore-hook-for-vanilla-stores

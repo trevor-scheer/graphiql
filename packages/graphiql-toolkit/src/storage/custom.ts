@@ -2,7 +2,7 @@
  * This function enables a custom namespace for localStorage
  */
 
-import { Storage } from './base';
+import type { Storage } from './base';
 
 export type CreateLocalStorageOptions = {
   /**

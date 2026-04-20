@@ -14,17 +14,17 @@ import {
   isScalarType,
   isUnionType,
 } from 'graphql';
-import { FC, ReactElement, ReactNode, useEffect } from 'react';
+import { useEffect } from 'react';
+import type { FC, ReactElement, ReactNode } from 'react';
 import {
-  SchemaReference,
   useGraphiQL,
   pick,
   createBoundedUseStore,
-  GraphiQLPlugin,
   DocsFilledIcon,
   DocsIcon,
   isMacOs,
 } from '@graphiql/react';
+import type { SchemaReference, GraphiQLPlugin } from '@graphiql/react';
 import { createStore } from 'zustand';
 import { getSchemaReference } from './schema-reference';
 import { DocExplorer } from './components';

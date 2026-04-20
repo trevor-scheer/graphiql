@@ -1,9 +1,5 @@
-import {
-  forwardRef,
-  MouseEventHandler,
-  useState,
-  ComponentPropsWithoutRef,
-} from 'react';
+import { forwardRef, useState } from 'react';
+import type { MouseEventHandler, ComponentPropsWithoutRef } from 'react';
 import { cn } from '../../utility';
 import { Tooltip } from '../tooltip';
 import { UnStyledButton } from '../button';

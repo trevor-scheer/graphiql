@@ -1,4 +1,5 @@
-import { ComponentPropsWithoutRef, forwardRef, ReactNode } from 'react';
+import { forwardRef } from 'react';
+import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 import { cn } from '../../utility';
 import { Reorder } from 'framer-motion';
 import { CloseIcon } from '../../icons';

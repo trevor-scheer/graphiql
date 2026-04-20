@@ -1,4 +1,4 @@
-import { OperationDefinitionNode } from 'graphql';
+import type { OperationDefinitionNode } from 'graphql';
 
 /**
  * Provided optional previous operations and selected name, and a next list of

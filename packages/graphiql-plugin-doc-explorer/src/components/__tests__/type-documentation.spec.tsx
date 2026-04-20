@@ -1,4 +1,5 @@
-import { FC, useEffect } from 'react';
+import { useEffect } from 'react';
+import type { FC } from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import type { GraphQLNamedType } from 'graphql';
 import {

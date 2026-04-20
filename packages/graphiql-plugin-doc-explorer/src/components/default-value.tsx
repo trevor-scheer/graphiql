@@ -1,5 +1,6 @@
 import type { FC } from 'react';
-import { astFromValue, print, ValueNode } from 'graphql';
+import { astFromValue, print } from 'graphql';
+import type { ValueNode } from 'graphql';
 import type { DocExplorerFieldDef } from '../context';
 import './default-value.css';
 

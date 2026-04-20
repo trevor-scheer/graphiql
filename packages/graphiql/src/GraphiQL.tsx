@@ -29,11 +29,11 @@ import {
   useGraphiQL,
   pick,
   VariableEditor,
-  EditorProps,
   cn,
   useGraphiQLActions,
   useMonaco,
 } from '@graphiql/react';
+import type { EditorProps } from '@graphiql/react';
 import { HistoryStore, HISTORY_PLUGIN } from '@graphiql/plugin-history';
 import {
   DocExplorerStore,

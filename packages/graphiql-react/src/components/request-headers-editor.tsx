@@ -1,4 +1,5 @@
-import { FC, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import type { FC } from 'react';
 import { useGraphiQL, useGraphiQLActions } from './provider';
 import type { EditorProps } from '../types';
 import { URI_NAME, KEY_BINDINGS, STORAGE_KEY } from '../constants';

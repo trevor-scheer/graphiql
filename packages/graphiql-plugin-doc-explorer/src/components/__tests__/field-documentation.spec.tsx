@@ -1,7 +1,9 @@
-import { FC, useEffect } from 'react';
+import { useEffect } from 'react';
+import type { FC } from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import { GraphQLString, GraphQLObjectType, Kind } from 'graphql';
-import { DocExplorerFieldDef, docExplorerStore } from '../../context';
+import { docExplorerStore } from '../../context';
+import type { DocExplorerFieldDef } from '../../context';
 import { FieldDocumentation } from '../field-documentation';
 
 const exampleObject = new GraphQLObjectType({

@@ -2,7 +2,8 @@ import type { Mock } from 'vitest';
 import { useGraphiQL as $useGraphiQL } from '@graphiql/react';
 import { render } from '@testing-library/react';
 import { GraphQLInt, GraphQLObjectType, GraphQLSchema } from 'graphql';
-import { FC, useEffect } from 'react';
+import { useEffect } from 'react';
+import type { FC } from 'react';
 import {
   DocExplorerStore,
   useDocExplorer,

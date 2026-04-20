@@ -1,16 +1,18 @@
 import {
-  DocumentNode,
-  FieldNode,
-  FragmentDefinitionNode,
-  GraphQLOutputType,
   GraphQLSchema,
-  SelectionNode,
   TypeInfo,
   getNamedType,
   visit,
   visitWithTypeInfo,
-  ASTVisitor,
   Kind,
+} from 'graphql';
+import type {
+  DocumentNode,
+  FieldNode,
+  FragmentDefinitionNode,
+  GraphQLOutputType,
+  SelectionNode,
+  ASTVisitor,
 } from 'graphql';
 
 function uniqueBy<T>(

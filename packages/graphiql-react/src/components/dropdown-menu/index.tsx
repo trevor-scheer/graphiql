@@ -1,13 +1,16 @@
-import { ComponentProps, FC, forwardRef } from 'react';
+import { forwardRef } from 'react';
+import type { ComponentProps, FC } from 'react';
 import { cn } from '../../utility';
 import {
   Trigger,
   Portal,
   Content as RadixContent,
   Item as RadixItem,
+  Root,
+} from '@radix-ui/react-dropdown-menu';
+import type {
   DropdownMenuContentProps,
   DropdownMenuItemProps,
-  Root,
 } from '@radix-ui/react-dropdown-menu';
 import './index.css';
 

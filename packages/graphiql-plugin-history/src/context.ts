@@ -1,9 +1,8 @@
-import { FC, ReactElement, ReactNode, useEffect } from 'react';
+import { useEffect } from 'react';
+import type { FC, ReactElement, ReactNode } from 'react';
 import { createStore } from 'zustand';
-import {
-  HistoryStore as ToolkitHistoryStore,
-  QueryStoreItem,
-} from '@graphiql/toolkit';
+import { HistoryStore as ToolkitHistoryStore } from '@graphiql/toolkit';
+import type { QueryStoreItem } from '@graphiql/toolkit';
 import { useGraphiQL, pick, createBoundedUseStore } from '@graphiql/react';
 
 const historyStore = createStore<HistoryStoreType>((set, get) => ({
