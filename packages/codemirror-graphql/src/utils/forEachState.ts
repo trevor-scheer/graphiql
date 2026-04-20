@@ -18,6 +18,6 @@ export default function forEachState(stack: State, fn: (state: State) => void) {
     state = state.prevState;
   }
   for (let i = reverseStateStack.length - 1; i >= 0; i--) {
-    fn(reverseStateStack[i]);
+    fn(reverseStateStack[i]!);
   }
 }

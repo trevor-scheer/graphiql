@@ -130,6 +130,7 @@ function parseVal(): ParseValueOutput | undefined {
       return token;
   }
   expect('Value');
+  return undefined;
 }
 
 function curToken(): ParseTokenOutput {
@@ -174,6 +175,7 @@ function skip(k: string) {
     lex();
     return true;
   }
+  return undefined;
 }
 
 function ch() {
@@ -249,7 +251,7 @@ function lex() {
       return;
   }
 
-  kind = string[start];
+  kind = string[start]!;
   ch();
 }
 

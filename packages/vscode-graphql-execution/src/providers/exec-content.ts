@@ -149,11 +149,11 @@ export class GraphQLContentProvider implements TextDocumentContentProvider {
         if (schema && Array.isArray(schema)) {
           for (const s of schema) {
             if (this.validUrlFromSchema(s as string)) {
-              endpoints.default.url = s.toString();
+              endpoints.default!.url = s.toString();
             }
           }
         } else if (schema && this.validUrlFromSchema(schema as string)) {
-          endpoints.default.url = schema.toString();
+          endpoints.default!.url = schema.toString();
         }
       } else if (endpoints?.default?.url) {
         this.outputChannel.appendLine(
@@ -175,7 +175,7 @@ export class GraphQLContentProvider implements TextDocumentContentProvider {
       return null;
     }
     const endpointName = await this.getEndpointName(endpointNames);
-    return endpoints[endpointName] || endpoints.default;
+    return endpoints[endpointName!] ?? endpoints.default ?? null;
   }
 
   async loadProvider() {

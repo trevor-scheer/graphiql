@@ -347,9 +347,10 @@ function lex(
   for (let i = 0; i < kinds.length; i++) {
     // @ts-ignore
     // TODO: ParseRules as numerical index
-    const match = stream.match(lexRules[kinds[i]]);
+    const match = stream.match(lexRules[kinds[i]!]);
     if (match && match instanceof Array) {
-      return { kind: kinds[i], value: match[0] };
+      return { kind: kinds[i]!, value: match[0]! };
     }
   }
+  return undefined;
 }

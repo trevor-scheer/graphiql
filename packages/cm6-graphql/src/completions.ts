@@ -58,6 +58,7 @@ export const completion = graphqlLanguage.data.of({
                 item.documentation || item.deprecationReason || '';
               return el;
             }
+            return undefined;
           },
         };
       }),

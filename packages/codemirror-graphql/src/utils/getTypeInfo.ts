@@ -109,8 +109,8 @@ export default function getTypeInfo(schema: GraphQLSchema, tokenState: State) {
         info.argDef = null;
         if (info.argDefs) {
           for (let i = 0; i < info.argDefs.length; i++) {
-            if (info.argDefs[i].name === state.name) {
-              info.argDef = info.argDefs[i];
+            if (info.argDefs[i]!.name === state.name) {
+              info.argDef = info.argDefs[i]!;
               break;
             }
           }
@@ -177,13 +177,15 @@ function getFieldDef(
   if (type && (type as GraphQLObjectType).getFields) {
     return (type as GraphQLObjectType).getFields()[fieldName];
   }
+  return undefined;
 }
 
 // Returns the first item in the array which causes predicate to return truthy.
-function find<T>(array: T[], predicate: (item: T) => boolean) {
+function find<T>(array: T[], predicate: (item: T) => boolean): T | undefined {
   for (let i = 0; i < array.length; i++) {
-    if (predicate(array[i])) {
-      return array[i];
+    if (predicate(array[i]!)) {
+      return array[i]!;
     }
   }
+  return undefined;
 }

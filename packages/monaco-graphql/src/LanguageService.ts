@@ -131,6 +131,7 @@ export class LanguageService {
       const cache = this._cacheSchema(schema);
       return cache.get(schema.uri);
     }
+    return undefined;
   }
 
   public getExternalFragmentDefinitions(): FragmentDefinitionNode[] {
@@ -262,6 +263,7 @@ export class LanguageService {
         },
       );
     }
+    return undefined;
   };
 
   public getVariablesJSONSchema = (

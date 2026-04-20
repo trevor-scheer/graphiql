@@ -192,6 +192,7 @@ export const ParseRules: { [name: string]: ParseRule } = {
         }
         return 'EnumValue';
     }
+    return undefined;
   },
   NumberValue: [t('Number', 'number')],
   StringValue: [

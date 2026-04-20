@@ -152,7 +152,7 @@ function annotations(
 
       // @ts-ignore
       // https://github.com/microsoft/TypeScript/pull/32695
-      const loc = error.locations[i];
+      const loc = error.locations[i]!;
       const highlightLoc = getLocation(highlightNode);
       const end = loc.column + (highlightLoc.end - highlightLoc.start);
       highlightedNodes.push({
@@ -182,7 +182,7 @@ export function getRange(location: SourceLocation, queryText: string): IRange {
   let stream = null;
 
   for (let i = 0; i < location.line; i++) {
-    stream = new CharacterStream(lines[i]);
+    stream = new CharacterStream(lines[i]!);
     while (!stream.eol()) {
       const style = parser.token(stream, state);
       if (style === 'invalidchar') {

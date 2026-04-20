@@ -620,6 +620,7 @@ export class MessageProcessor {
       if (currentRange?.containsPosition(toPosition(position))) {
         return true;
       }
+      return false;
     });
 
     // If there is no GraphQL query in this file, return an empty result.
@@ -674,6 +675,7 @@ export class MessageProcessor {
       if (currentRange?.containsPosition(toPosition(position))) {
         return true;
       }
+      return false;
     });
 
     // If there is no GraphQL query in this file, return an empty result.
@@ -770,6 +772,7 @@ export class MessageProcessor {
           await this._updateFragmentDefinition(change.uri, []);
           await this._updateObjectTypeDefinition(change.uri, []);
         }
+        return undefined;
       }),
     );
     this._logger.log(
@@ -805,6 +808,7 @@ export class MessageProcessor {
       if (currentRange?.containsPosition(toPosition(position))) {
         return true;
       }
+      return false;
     });
 
     // If there is no GraphQL query in this file, return an empty result.
@@ -855,7 +859,7 @@ export class MessageProcessor {
                 URI.parse(res.path).toString(),
               );
               const vOffset = isEmbedded
-                ? (cachedDoc?.contents[0].range?.start.line ?? 0)
+                ? (cachedDoc?.contents[0]?.range?.start.line ?? 0)
                 : parentRange.start.line;
 
               defRange.setStart(
@@ -895,7 +899,7 @@ export class MessageProcessor {
         fileName: textDocument.uri,
       }),
     );
-    return formatted;
+    return formatted as Location[];
   }
   _getCustomLocateResult(
     project: GraphQLProjectConfig,
@@ -912,7 +916,7 @@ export class MessageProcessor {
         project,
       });
       if (typeof locateResult === 'string') {
-        const [uri, line = '1', character = '1'] = locateResult.split(':');
+        const [uri = '', line = '1', character = '1'] = locateResult.split(':');
         const startLine = Math.max(parseInt(line, 10) - 1, 0);
         const startCharacter = Math.max(parseInt(character, 10) - 1, 0);
         return {
@@ -1005,16 +1009,20 @@ export class MessageProcessor {
       const symbols: SymbolInformation[] = [];
       await Promise.all(
         documents.map(async ([uri]) => {
+          if (!uri) {
+            return [];
+          }
           const cachedDocument = this._getCachedDocument(uri);
 
           if (!cachedDocument) {
             return [];
           }
           const docSymbols = await this._languageService.getDocumentSymbols(
-            cachedDocument.contents[0].query,
+            cachedDocument.contents[0]?.query ?? '',
             uri,
           );
           symbols.push(...docSymbols);
+          return undefined;
         }),
       );
       return symbols.filter(symbol => symbol?.name?.includes(params.query));
@@ -1261,6 +1269,7 @@ export class MessageProcessor {
       );
       this._logger.error(String(err));
     }
+    return undefined;
   }
   /**
    * This should only be run on initialize() really.
@@ -1288,6 +1297,7 @@ export class MessageProcessor {
         }),
       );
     }
+    return undefined;
   }
   _isRelayCompatMode(query: string): boolean {
     return (
@@ -1393,7 +1403,7 @@ export function processDiagnosticsMessage(
 ): Diagnostic[] {
   const queryLines = query.split('\n');
   const totalLines = queryLines.length;
-  const lastLineLength = queryLines[totalLines - 1].length;
+  const lastLineLength = queryLines[totalLines - 1]?.length ?? 0;
   const lastCharacterPosition = new Position(totalLines, lastLineLength);
   const processedResults = results.filter(diagnostic =>
     // @ts-ignore

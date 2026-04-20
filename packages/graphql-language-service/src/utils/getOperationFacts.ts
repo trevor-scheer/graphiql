@@ -91,6 +91,7 @@ export default function getOperationFacts(
       documentAST,
     };
   } catch {}
+  return undefined;
 }
 
 /**

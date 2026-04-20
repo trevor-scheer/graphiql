@@ -48,23 +48,23 @@ export default function main(
     'A path to the GraphQL file or its contents is required.',
   );
 
-  const text = ensureText(argv.text, filePath);
+  const text = ensureText(argv.text ?? '', filePath ?? '');
   const schemaPath = argv.schemaPath?.trim();
 
   let exitCode;
   switch (command) {
     case 'autocomplete':
       const lines = text.split('\n');
-      const row = parseInt(argv.row, 10) || lines.length - 1;
-      const column = parseInt(argv.column, 10) || lines.at(-1)!.length;
+      const row = parseInt(argv.row ?? '', 10) || lines.length - 1;
+      const column = parseInt(argv.column ?? '', 10) || lines.at(-1)!.length;
       const point = new Position(row, column);
-      exitCode = _getAutocompleteSuggestions(text, point, schemaPath);
+      exitCode = _getAutocompleteSuggestions(text, point, schemaPath ?? '');
       break;
     case 'outline':
       exitCode = _getOutline(text);
       break;
     case 'validate':
-      exitCode = _getDiagnostics(filePath, text, schemaPath);
+      exitCode = _getDiagnostics(filePath ?? '', text, schemaPath);
       break;
     default:
       throw new Error(`Unknown command '${command}'`);

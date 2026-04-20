@@ -231,7 +231,7 @@ function getJSONSchemaFromGraphQLType(
 
     if (defs) {
       for (const defName of Object.keys(defs)) {
-        definitions[defName] = defs[defName];
+        definitions[defName] = defs[defName]!;
       }
     }
   } else if (isInputObjectType(baseType)) {
@@ -262,7 +262,7 @@ function getJSONSchemaFromGraphQLType(
       }
 
       for (const fieldName of Object.keys(fields)) {
-        const field = fields[fieldName];
+        const field = fields[fieldName]!;
         const {
           required: fieldRequired,
           definition: fieldDefinition,

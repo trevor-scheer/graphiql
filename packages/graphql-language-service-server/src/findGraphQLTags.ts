@@ -82,7 +82,8 @@ export async function findGraphQLTags(
     TaggedTemplateExpression(node: TaggedTemplateExpression) {
       const tagName = getGraphQLTagName(node.tag);
       if (tagName) {
-        const { loc } = node.quasi.quasis[0];
+        const firstQuasi = node.quasi.quasis[0];
+        const { loc } = firstQuasi!;
 
         const template =
           node.quasi.quasis.length > 1
@@ -92,11 +93,11 @@ export async function findGraphQLTags(
                     ? quasi.value.raw
                     : getReplacementString(
                         quasi.value.raw,
-                        node.quasi.quasis[i + 1].value.raw,
+                        node.quasi.quasis[i + 1]!.value.raw,
                       ),
                 )
                 .join('')
-            : node.quasi.quasis[0].value.raw;
+            : firstQuasi!.value.raw;
         // handle template literals with N line expressions
         if (loc && node.quasi.quasis.length > 1) {
           const last = node.quasi.quasis.pop();
@@ -125,7 +126,7 @@ export async function findGraphQLTags(
     TemplateLiteral(node: TemplateLiteral) {
       // check if the template literal is prefixed with #graphql
       const hasGraphQLPrefix =
-        node.quasis[0].value.raw.startsWith('#graphql\n');
+        node.quasis[0]?.value.raw.startsWith('#graphql\n') ?? false;
       // check if the template expression has /* GraphQL */ comment
       const hasGraphQLComment = Boolean(
         node.leadingComments?.[0]?.value.match(/^\s*GraphQL\s*$/),
@@ -170,7 +171,7 @@ const getReplacementString = (quasi: string, nextQuasi: string) => {
  * Parses a Babel AST template literal into a GraphQL tag.
  */
 function parseTemplateLiteral(node: TemplateLiteral, rangeMapper: RangeMapper) {
-  const { loc } = node.quasis[0];
+  const { loc } = node.quasis[0]!;
   if (loc) {
     // handle template literals with N line expressions
 
@@ -185,7 +186,7 @@ function parseTemplateLiteral(node: TemplateLiteral, rangeMapper: RangeMapper) {
       .map((quasi, i) =>
         i === node.quasis?.length - 1
           ? quasi.value.raw
-          : getReplacementString(quasi.value.raw, node.quasis[i + 1].value.raw),
+          : getReplacementString(quasi.value.raw, node.quasis[i + 1]!.value.raw),
       )
       .join('');
 
@@ -202,6 +203,7 @@ function parseTemplateLiteral(node: TemplateLiteral, rangeMapper: RangeMapper) {
       range,
     };
   }
+  return undefined;
 }
 
 function getGraphQLTagName(tag: Expression): string | null {

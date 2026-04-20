@@ -105,6 +105,7 @@ export class GraphQLLanguageService {
     if (config) {
       return config;
     }
+    return undefined;
   }
 
   public async getDiagnostics(
@@ -381,7 +382,7 @@ export class GraphQLLanguageService {
       output.push({
         // @ts-ignore
         name: tree.representativeName ?? 'Anonymous',
-        kind: getKind(tree),
+        kind: getKind(tree)!,
         location: {
           uri: filePath,
           range: {

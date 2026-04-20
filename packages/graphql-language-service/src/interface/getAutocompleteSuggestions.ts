@@ -846,6 +846,7 @@ const getParentDefinition = (state: State, kind: RuleKind) => {
   if (state.prevState?.prevState?.prevState?.prevState?.kind === kind) {
     return state.prevState.prevState.prevState.prevState;
   }
+  return undefined;
 };
 
 export function getVariableCompletions(

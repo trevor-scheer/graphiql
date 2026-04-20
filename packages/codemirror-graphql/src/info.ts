@@ -119,6 +119,7 @@ CodeMirror.registerHelper(
       renderDescription(into, options, typeInfo.type);
       return into;
     }
+    return undefined;
   },
 );
 

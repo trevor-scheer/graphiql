@@ -121,7 +121,7 @@ function getVariablesHint(
     typeInfo.fields
   ) {
     const inputFields = Object.keys(typeInfo.fields).map(
-      fieldName => typeInfo.fields![fieldName],
+      fieldName => typeInfo.fields![fieldName]!,
     );
     return hintList(
       cur,
@@ -170,6 +170,7 @@ function getVariablesHint(
       ]);
     }
   }
+  return undefined;
 }
 
 interface VariableTypeInfo {

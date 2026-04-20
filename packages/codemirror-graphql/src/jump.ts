@@ -72,5 +72,6 @@ CodeMirror.registerHelper(
     if (kind === 'NamedType' && typeInfo.type) {
       return getTypeReference(typeInfo);
     }
+    return undefined;
   },
 );

@@ -26,6 +26,7 @@ export function getASTNodeAtPosition(
         offset <= node.loc.end
       ) {
         nodeContainingPosition = node;
+        return undefined;
       } else {
         return false;
       }
@@ -34,6 +35,7 @@ export function getASTNodeAtPosition(
       if (node.loc && node.loc.start <= offset && offset <= node.loc.end) {
         return false;
       }
+      return undefined;
     },
   });
 

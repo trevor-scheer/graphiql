@@ -92,6 +92,8 @@ const ParseRules = {
             return 'NullValue';
         }
         return null;
+      default:
+        return undefined;
     }
   },
   NumberValue: [t('Number', 'number')],

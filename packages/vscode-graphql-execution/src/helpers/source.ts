@@ -178,7 +178,7 @@ export class SourceHelper {
 
       let result: RegExpExecArray | null;
       while ((result = regExpGQL.exec(text)) !== null) {
-        const contents = result[1];
+        const contents = result[1]!;
 
         // https://regex101.com/r/KFMXFg/2
         if (contents.match('/${(.+)?}/g')) {

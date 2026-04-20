@@ -66,7 +66,7 @@ export const lint: Extension = linter(
         return {
           from,
           to: from === to ? to + 1 : to,
-          severity: SEVERITY[item.severity - 1],
+          severity: SEVERITY[item.severity - 1]!,
           // source: item.source, // TODO:
           message: item.message,
           actions: [], // TODO:

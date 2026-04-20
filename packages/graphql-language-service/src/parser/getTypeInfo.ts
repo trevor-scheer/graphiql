@@ -64,7 +64,7 @@ export function forEachState(
     state = state.prevState;
   }
   for (let i = reverseStateStack.length - 1; i >= 0; i--) {
-    fn(reverseStateStack[i]);
+    fn(reverseStateStack[i]!);
   }
 }
 
@@ -207,7 +207,7 @@ export function getTypeInfo(
       case RuleKinds.ARGUMENT:
         if (argDefs) {
           for (let i = 0; i < argDefs.length; i++) {
-            if (argDefs[i].name === state.name) {
+            if (argDefs[i]!.name === state.name) {
               argDef = argDefs[i];
               break;
             }
