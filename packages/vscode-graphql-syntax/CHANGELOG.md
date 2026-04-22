@@ -1,5 +1,13 @@
 # vscode-graphql-syntax
 
+## 1.3.9
+
+### Patch Changes
+
+- [#4183](https://github.com/graphql/graphiql/pull/4183) [`2ef9389`](https://github.com/graphql/graphiql/commit/2ef9389311c6308f637a2493251c00bdb57b1421) Thanks [@trevor-scheer](https://github.com/trevor-scheer)! - Fix VS Code extension publishing scripts
+
+- [#4143](https://github.com/graphql/graphiql/pull/4143) [`7979bf5`](https://github.com/graphql/graphiql/commit/7979bf5418ed702cc086a4857a583e625d09bf7e) Thanks [@Netail](https://github.com/Netail)! - Add syntax highlighting support for subscription operations.
+
 ## 1.3.8
 
 ### Patch Changes
