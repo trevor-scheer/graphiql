@@ -5,6 +5,6 @@
   "license": "MIT",
   "description": "An example using GraphiQL",
   "scripts": {
-    "build-demo": "copy index.html ../../packages/graphiql/cdn/"
+    "build:demo": "copy index.html ../../packages/graphiql/cdn/"
   }
 }

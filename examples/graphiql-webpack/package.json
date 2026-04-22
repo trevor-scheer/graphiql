@@ -5,7 +5,7 @@
   "license": "MIT",
   "description": "A GraphiQL example with Webpack",
   "scripts": {
-    "build-demo": "webpack-cli && mkdirp ../../packages/graphiql/webpack && cp -r dist/** ../../packages/graphiql/webpack",
+    "build:demo": "webpack-cli && mkdirp ../../packages/graphiql/webpack && cp -r dist/** ../../packages/graphiql/webpack",
     "start": "NODE_ENV=development webpack-cli serve"
   },
   "dependencies": {
