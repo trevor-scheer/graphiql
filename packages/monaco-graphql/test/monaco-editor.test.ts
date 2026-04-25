@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { $ } from 'execa';
 
 // eslint-disable-next-line no-control-regex
