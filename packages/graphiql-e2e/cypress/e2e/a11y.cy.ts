@@ -70,7 +70,7 @@ function checkOrCapture(checkpoint: string) {
 
 describe('a11y baseline', () => {
   beforeEach(() => {
-    cy.visit('/');
+    cy.visitGraphiQL();
     cy.injectAxe();
   });
 

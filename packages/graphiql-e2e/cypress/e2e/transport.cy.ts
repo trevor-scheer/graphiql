@@ -18,12 +18,12 @@ describe('Transport API + response pane header', () => {
       this.skip();
     }
     cy.intercept('GET', '/e2e/assets/index-*.js').as('e2eApp');
-    cy.visit('/');
+    cy.visitGraphiQL();
     cy.wait('@e2eApp').its('response.statusCode').should('equal', 200);
   });
 
   it('Shows the real HTTP status code badge after a successful query', () => {
-    cy.visitWithOp({ query: testQuery });
+    cy.visitGraphiQL({ query: testQuery });
     cy.clickExecuteQuery();
     cy.get('.graphiql-response-status-code').should('contain.text', '200');
     cy.get('.graphiql-response-status').should(
@@ -33,7 +33,7 @@ describe('Transport API + response pane header', () => {
   });
 
   it('Shows a real timing badge in ms', () => {
-    cy.visitWithOp({ query: testQuery });
+    cy.visitGraphiQL({ query: testQuery });
     cy.clickExecuteQuery();
     cy.get('.graphiql-response-meta')
       .first()
@@ -42,7 +42,7 @@ describe('Transport API + response pane header', () => {
   });
 
   it('Shows a non-zero response size badge', () => {
-    cy.visitWithOp({ query: testQuery });
+    cy.visitGraphiQL({ query: testQuery });
     cy.clickExecuteQuery();
     // size badge is rendered as e.g. "123 B" or "1.2 KB"
     cy.get('.graphiql-response-meta')
@@ -53,7 +53,7 @@ describe('Transport API + response pane header', () => {
 
   it('Surfaces an error status when the response is a 500', () => {
     cy.intercept('/graphql', { statusCode: 500, body: { errors: [] } });
-    cy.visitWithOp({ query: testQuery });
+    cy.visitGraphiQL({ query: testQuery });
     cy.clickExecuteQuery();
     cy.get('.graphiql-response-status').should(
       'have.class',
@@ -62,7 +62,7 @@ describe('Transport API + response pane header', () => {
   });
 
   it('Does NOT show the upgrade banner when a `transport` is configured', () => {
-    cy.visit('/');
+    cy.visitGraphiQL();
     cy.get('.graphiql-transport-upgrade-banner').should('not.exist');
   });
 });
