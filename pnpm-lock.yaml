@@ -307,7 +307,7 @@ importers:
         version: 4.0.0(webpack@5.112.2)
       webpack:
         specifier: ^5
-        version: 5.112.2(esbuild@0.28.2)(svgo@4.1.0)(webpack-cli@7.2.3)
+        version: 5.112.2(esbuild@0.28.2)(postcss@8.5.32)(svgo@4.1.0)(webpack-cli@7.2.3)
       webpack-cli:
         specifier: ^7
         version: 7.2.3(js-yaml@4.3.2)(json5@2.2.3)(webpack-bundle-analyzer@5.4.0)(webpack-dev-server@6.1.0)(webpack@5.112.2)
@@ -466,7 +466,7 @@ importers:
         version: 5.9.3
       webpack:
         specifier: ^5
-        version: 5.112.2(esbuild@0.28.2)(postcss@8.5.32)(svgo@4.1.0)(webpack-cli@7.2.3)
+        version: 5.112.2(esbuild@0.28.2)(svgo@4.1.0)(webpack-cli@7.2.3)
       webpack-bundle-analyzer:
         specifier: ^5
         version: 5.4.0
@@ -17169,7 +17169,7 @@ snapshots:
       schema-utils: 4.8.1(webpack@5.112.2)
       serialize-javascript: 7.1.4
       tinyglobby: 0.2.17
-      webpack: 5.112.2(esbuild@0.28.2)(svgo@4.1.0)(webpack-cli@7.2.3)
+      webpack: 5.112.2(esbuild@0.28.2)(postcss@8.5.32)(svgo@4.1.0)(webpack-cli@7.2.3)
 
   copy@0.3.2:
     dependencies:
@@ -18337,7 +18337,7 @@ snapshots:
       semver: 7.8.5
       tapable: 2.3.3
       typescript: 5.9.3
-      webpack: 5.112.2(esbuild@0.28.2)(postcss@8.5.32)(svgo@4.1.0)(webpack-cli@7.2.3)
+      webpack: 5.112.2(esbuild@0.28.2)(svgo@4.1.0)(webpack-cli@7.2.3)
 
   form-data-encoder@1.9.0: {}
 
@@ -19870,7 +19870,7 @@ snapshots:
     dependencies:
       loader-utils: 2.0.4
       monaco-editor: 0.57.0
-      webpack: 5.112.2(esbuild@0.28.2)(postcss@8.5.32)(svgo@4.1.0)(webpack-cli@7.2.3)
+      webpack: 5.112.2(esbuild@0.28.2)(svgo@4.1.0)(webpack-cli@7.2.3)
 
   monaco-editor@0.57.0:
     dependencies:
@@ -22438,7 +22438,7 @@ snapshots:
   webpack-manifest-plugin@5.0.1(webpack@5.112.2):
     dependencies:
       tapable: 2.3.3
-      webpack: 5.112.2(esbuild@0.28.2)(svgo@4.1.0)(webpack-cli@7.2.3)
+      webpack: 5.112.2(esbuild@0.28.2)(postcss@8.5.32)(svgo@4.1.0)(webpack-cli@7.2.3)
       webpack-sources: 2.3.1
 
   webpack-merge@6.0.1:
@@ -22745,7 +22745,7 @@ snapshots:
       fast-json-stable-stringify: 2.1.0
       pretty-bytes: 5.6.0
       upath: 1.2.0
-      webpack: 5.112.2(esbuild@0.28.2)(svgo@4.1.0)(webpack-cli@7.2.3)
+      webpack: 5.112.2(esbuild@0.28.2)(postcss@8.5.32)(svgo@4.1.0)(webpack-cli@7.2.3)
       webpack-sources: 1.4.3
       workbox-build: 7.4.1(@types/babel__core@7.20.5)
     transitivePeerDependencies:
