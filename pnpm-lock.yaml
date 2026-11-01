@@ -307,7 +307,7 @@ importers:
         version: 4.0.0(webpack@5.112.2)
       webpack:
         specifier: ^5
-        version: 5.112.2(esbuild@0.28.2)(postcss@8.5.32)(svgo@4.1.0)(webpack-cli@7.2.3)
+        version: 5.112.2(esbuild@0.28.2)(svgo@4.1.0)(webpack-cli@7.2.3)
       webpack-cli:
         specifier: ^7
         version: 7.2.3(js-yaml@4.3.2)(json5@2.2.3)(webpack-bundle-analyzer@5.4.0)(webpack-dev-server@6.1.0)(webpack@5.112.2)
@@ -466,7 +466,7 @@ importers:
         version: 5.9.3
       webpack:
         specifier: ^5
-        version: 5.112.2(esbuild@0.28.2)(svgo@4.1.0)(webpack-cli@7.2.3)
+        version: 5.112.2(esbuild@0.28.2)(postcss@8.5.32)(svgo@4.1.0)(webpack-cli@7.2.3)
       webpack-bundle-analyzer:
         specifier: ^5
         version: 5.4.0
@@ -1059,8 +1059,8 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       framer-motion:
-        specifier: ^14.0.0
-        version: 14.7.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+        specifier: 14.0.0
+        version: 14.0.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       get-value:
         specifier: ^4.1.0
         version: 4.1.0
@@ -7594,8 +7594,8 @@ packages:
     resolution: {integrity: sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==}
     engines: {node: '>= 0.6'}
 
-  framer-motion@14.7.1:
-    resolution: {integrity: sha512-mFDYZxyfeZnpvL/zEQEqLZNYVA/ya47c9TBfZb/PEoNBBVSVvCLkMrCv9U38cuw72W161XENZwZB0+4nIBLEJg==}
+  framer-motion@14.0.0:
+    resolution: {integrity: sha512-QAtHmybrDFSliyW1sexMtSQTQd+1jw2ajibEmzpuI4XdPVzQkn+dAzJMm2sW3pl9MJuSS4xN51djQ7huhlP/VA==}
     peerDependencies:
       react: 19.2.7
       react-dom: 19.2.7
@@ -9089,11 +9089,11 @@ packages:
     resolution: {integrity: sha512-tljKC0ex20AjO58Ob/eZ53JloycbVswbVNCHx6V6VLGzqt/w8dIynVGL0G8qVjNKwiA7sYSogCrN6QtJ82IV+g==}
     engines: {node: '>= 0.8.0'}
 
-  motion-dom@14.7.1:
-    resolution: {integrity: sha512-p9q9F7+HoijbQjUG/cSGNmWS2t1OaAKxkd2RG5gQJRoDwoTap/Khb7K1P5rLW90crnSmx0rcRXzh3Jd5UNrpEw==}
+  motion-dom@14.0.0:
+    resolution: {integrity: sha512-aU3ApXo1yTpeUi3JU+jbDk2TELjxPE3MbBMUP7nZHlARb6RweJK+ojmLjpuB0YsY6zhbBl1YWGo8LMsI1/Llqw==}
 
-  motion-utils@14.7.0:
-    resolution: {integrity: sha512-woO0/Nb7ys75f94fjvQi/6leiHGvZUYkeHUPEZ3vxsV+9OpEVhkxp01x8MlRwX0zt31EqgXsKDAoBoJLC148Tw==}
+  motion-utils@14.0.0:
+    resolution: {integrity: sha512-jBsyjVxTTRZNeuvd/v+btVXr90LQkYl4HhRu9T2ARc+PMnvkmjsjRVeAg4Qm10b6TlTw+kykWI8gu/6LuvpLSQ==}
 
   mri@1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
@@ -17169,7 +17169,7 @@ snapshots:
       schema-utils: 4.8.1(webpack@5.112.2)
       serialize-javascript: 7.1.4
       tinyglobby: 0.2.17
-      webpack: 5.112.2(esbuild@0.28.2)(postcss@8.5.32)(svgo@4.1.0)(webpack-cli@7.2.3)
+      webpack: 5.112.2(esbuild@0.28.2)(svgo@4.1.0)(webpack-cli@7.2.3)
 
   copy@0.3.2:
     dependencies:
@@ -18337,7 +18337,7 @@ snapshots:
       semver: 7.8.5
       tapable: 2.3.3
       typescript: 5.9.3
-      webpack: 5.112.2(esbuild@0.28.2)(svgo@4.1.0)(webpack-cli@7.2.3)
+      webpack: 5.112.2(esbuild@0.28.2)(postcss@8.5.32)(svgo@4.1.0)(webpack-cli@7.2.3)
 
   form-data-encoder@1.9.0: {}
 
@@ -18362,10 +18362,10 @@ snapshots:
 
   forwarded@0.2.0: {}
 
-  framer-motion@14.7.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
+  framer-motion@14.0.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
     dependencies:
-      motion-dom: 14.7.1
-      motion-utils: 14.7.0
+      motion-dom: 14.0.0
+      motion-utils: 14.0.0
       tslib: 2.8.1
     optionalDependencies:
       react: 19.2.7
@@ -19870,7 +19870,7 @@ snapshots:
     dependencies:
       loader-utils: 2.0.4
       monaco-editor: 0.57.0
-      webpack: 5.112.2(esbuild@0.28.2)(svgo@4.1.0)(webpack-cli@7.2.3)
+      webpack: 5.112.2(esbuild@0.28.2)(postcss@8.5.32)(svgo@4.1.0)(webpack-cli@7.2.3)
 
   monaco-editor@0.57.0:
     dependencies:
@@ -19891,11 +19891,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  motion-dom@14.7.1:
+  motion-dom@14.0.0:
     dependencies:
-      motion-utils: 14.7.0
+      motion-utils: 14.0.0
 
-  motion-utils@14.7.0: {}
+  motion-utils@14.0.0: {}
 
   mri@1.2.0: {}
 
@@ -22438,7 +22438,7 @@ snapshots:
   webpack-manifest-plugin@5.0.1(webpack@5.112.2):
     dependencies:
       tapable: 2.3.3
-      webpack: 5.112.2(esbuild@0.28.2)(postcss@8.5.32)(svgo@4.1.0)(webpack-cli@7.2.3)
+      webpack: 5.112.2(esbuild@0.28.2)(svgo@4.1.0)(webpack-cli@7.2.3)
       webpack-sources: 2.3.1
 
   webpack-merge@6.0.1:
@@ -22745,7 +22745,7 @@ snapshots:
       fast-json-stable-stringify: 2.1.0
       pretty-bytes: 5.6.0
       upath: 1.2.0
-      webpack: 5.112.2(esbuild@0.28.2)(postcss@8.5.32)(svgo@4.1.0)(webpack-cli@7.2.3)
+      webpack: 5.112.2(esbuild@0.28.2)(svgo@4.1.0)(webpack-cli@7.2.3)
       webpack-sources: 1.4.3
       workbox-build: 7.4.1(@types/babel__core@7.20.5)
     transitivePeerDependencies:

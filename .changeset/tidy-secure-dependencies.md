@@ -1,5 +1,6 @@
 ---
 '@graphiql/plugin-collections': patch
+'@graphiql/react': patch
 'graphql-language-service-server': patch
 'vscode-graphql-execution': patch
 'vscode-graphql': patch
